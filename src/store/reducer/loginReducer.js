@@ -1,13 +1,10 @@
 const initialState = {
+  id: "",
+  full_name: "",
   username: "",
   password: "",
-  name: "",
-  age: "",
-  sex: "",
-  address: "",
   email: "",
-  telephone: "",
-  token: "",
+  internal: "",
   isLogin: false,
 };
 

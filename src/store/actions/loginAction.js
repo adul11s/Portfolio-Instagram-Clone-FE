@@ -15,7 +15,7 @@ export const doLogin = (props) => {
           localStorage.setItem("isLogin", true);
           const token = localStorage.getItem("token");
           const user = jwt(token);
-          const claims = user["user_claims"]["client_id"];
+          const claims = user["user_claims"]["id"];
           const client = claims.toString();
           const bio = await axios.get("http://0.0.0.0:5050/user/" + client, {
             headers: {
@@ -53,19 +53,12 @@ export const doLogout = (el) => {
 export const doRegister = (props) => {
   return async (dispatch, getState) => {
     const bodyRequest = {
-      username: getState().login.username,
-      password: getState().login.password,
-      name: getState().login.name,
-      age: getState().login.age,
-      price: getState().login.price,
-      color: getState().login.color,
-      weight: getState().login.weight,
-      top_product: getState().login.top_product,
+      username: getState().post.username,
+      full_name: getState().post.full_name,
+      password: getState().post.password,
+      email: getState().post.email,
     };
-    const register = await axios.post(
-      "http://0.0.0.0:5050/register",
-      bodyRequest
-    );
+    const register = await axios.post("http://0.0.0.0:5050/user", bodyRequest);
     console.log("data", register.data);
     dispatch({ type: "SUCCESS_REGISTER" });
   };

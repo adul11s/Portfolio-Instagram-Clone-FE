@@ -1,7 +1,7 @@
 import React from "react";
-import SignUpSide from "../components/SingUpSide";
+import SignUpSide from "../components/SignUpSide";
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -11,4 +11,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default SignUp;
